@@ -7,22 +7,23 @@ opercacoes = ('','+', '-', '*', '/')
 
 # Calculation function
 def calcFunc():
-    if operation == "+" and (numOne != "" or numTwo != ""):
+    if operation == "+" and numOne != "" and numTwo != "":
         result = int(numOne) + int(numTwo)
         sl.metric(label= "Resultado: ", value=result)
-    elif operation == "-" and (numOne != "" or numTwo != ""):
+    elif operation == "-" and numOne != "" and numTwo != "":
         result = int(numOne) - int(numTwo)
-        sl.write(result)
-    elif operation == "*" and (numOne != "" or numTwo != ""):
+        sl.metric(label= "Resultado: ", value=result)
+    elif operation == "*" and numOne != "" and numTwo != "":
         result = int(numOne) * int(numTwo)
         sl.metric(label= "Resultado: ", value=result)
-    elif operation == "/" and numTwo !=0 and (numOne != "" or numTwo != ""):
-        result = int(numOne) / int(numTwo)
-        sl.metric(label= "Resultado: ", value=result)
+    elif operation == "/" and numOne != "" and numTwo != "":
+        if numTwo != '0':
+            result = int(numOne) / int(numTwo)
+            sl.metric(label= "Resultado: ", value=result)
+        else:
+            sl.write('Não foi possivel calcular!')
     elif numOne == "" or numTwo == "":
         sl.write('Aguardando valores')
-    else:
-        sl.write('Não foi possivel calcular!')
 
 # Setting up columns
 sl.set_page_config(layout="wide")
@@ -60,22 +61,23 @@ sl.text("Agora a função que irá calcular os valores:")
 code_function = """
 # Calculation function
 def calcFunc():
-    if operation == "+" and (numOne != "" or numTwo != ""):
+    if operation == "+" and numOne != "" and numTwo != "":
         result = int(numOne) + int(numTwo)
         sl.metric(label= "Resultado: ", value=result)
-    elif operation == "-" and (numOne != "" or numTwo != ""):
+    elif operation == "-" and numOne != "" and numTwo != "":
         result = int(numOne) - int(numTwo)
-        sl.write(result)
-    elif operation == "*" and (numOne != "" or numTwo != ""):
+        sl.metric(label= "Resultado: ", value=result)
+    elif operation == "*" and numOne != "" and numTwo != "":
         result = int(numOne) * int(numTwo)
         sl.metric(label= "Resultado: ", value=result)
-    elif operation == "/" and numTwo !=0 and (numOne != "" or numTwo != ""):
-        result = int(numOne) / int(numTwo)
-        sl.metric(label= "Resultado: ", value=result)
+    elif operation == "/" and numOne != "" and numTwo != "":
+        if numTwo != '0':
+            result = int(numOne) / int(numTwo)
+            sl.metric(label= "Resultado: ", value=result)
+        else:
+            sl.write('Não foi possivel calcular!')
     elif numOne == "" or numTwo == "":
         sl.write('Aguardando valores')
-    else:
-        sl.write('Não foi possivel calcular!')
 """
 sl.code(code_function, language="python")
 
