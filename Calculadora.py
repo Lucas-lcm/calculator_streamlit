@@ -103,9 +103,9 @@ sl.code(code_front_end, language="python")
 
 sl.text("Viu? Foi simples !")
 
-sl.text("Primeiro o usamo o Python puro para realizar a lógica")
+sl.text("Primeiro o usamos o Python puro para realizar a lógica")
 
-sl.text("Depois utuilizamso o Streamlit para criação do front-end e elementos")
+sl.text("Depois utuilizamos o Streamlit para criação do front-end e elementos")
 
 sl.markdown("[Baixe o código completo dessa calculadora no meu Github](https://github.com/Lucas-lcm/calculator_streamlit)")
 
