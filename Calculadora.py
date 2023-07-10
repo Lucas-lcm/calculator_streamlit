@@ -2,7 +2,7 @@ import streamlit as sl
 
 # Run aplication: streamlit run calculadora.py
 
-# Operatin tuple, for the selectbox options
+# Operation tuple, for the selectbox options
 opercacoes = ('','+', '-', '*', '/')
 
 # Calculation function
